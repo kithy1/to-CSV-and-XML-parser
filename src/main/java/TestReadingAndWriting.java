@@ -1,15 +1,24 @@
 import model.Text;
 import readingservice.ConsoleReader;
+import readingservice.FileReader;
+import readingservice.Reader;
 import writingservice.Writer;
 import writingservice.csv.CSVConsoleWriter;
 import writingservice.csv.CSVFileWriter;
 import writingservice.xml.XMLConsoleWriter;
 import writingservice.xml.XMLFileWriter;
 
+import java.io.IOException;
+
 public class TestReadingAndWriting {
     public static void main(String[] args) {
-        ConsoleReader reader = new ConsoleReader();
-        Text read = reader.read();
+        Reader reader = new FileReader("./src/main/resources/test-input.txt");
+        Text read = null;
+        try {
+            read = reader.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Writer writer = new CSVFileWriter("src/main/resources/test.csv");
         try {

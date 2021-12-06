@@ -2,6 +2,8 @@ package readingservice;
 
 import model.Text;
 
+import java.io.IOException;
+
 public interface Reader {
-     Text read();
+     Text read() throws IOException;
 }
