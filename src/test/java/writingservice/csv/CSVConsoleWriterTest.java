@@ -2,6 +2,7 @@ package writingservice.csv;
 
 import model.Text;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import writingservice.Writer;
@@ -37,5 +38,11 @@ class CSVConsoleWriterTest {
         String out = ", Word 1, Word 2, Word 3" + newLine +
                 "Sentence 1, Ala, ma, kota" + newLine;
         assertEquals(out, outContent.toString());
+    }
+
+    @Test
+    void write_expect_exception() {
+        Text text = TextCreator.prepareEmptyText();
+        Assertions.assertThrows(IllegalStateException.class, ()-> consoleWriter.write(text));
     }
 }

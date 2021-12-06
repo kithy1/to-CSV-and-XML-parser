@@ -2,14 +2,12 @@ package model;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@ToString
 @Getter
 @Setter
 @XmlRootElement(name = "sentence")
@@ -29,11 +27,6 @@ public class Sentence {
 
     public void addWord(String word) {
         this.words.add(word);
-    }
-
-    public void addAllWords(List<String> words) {
-        words.sort(String::compareToIgnoreCase);
-        this.words.addAll(words);
     }
 
     public int wordsSize() {

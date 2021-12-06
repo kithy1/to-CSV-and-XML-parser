@@ -17,4 +17,9 @@ public class TextCreator {
         sentences.add(sentence);
         return new Text(sentences);
     }
+
+    public static Text prepareEmptyText(){
+        List<Sentence> sentences = new ArrayList<>();
+        return new Text(sentences);
+    }
 }

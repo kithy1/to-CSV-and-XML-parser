@@ -1,5 +1,4 @@
 import model.Text;
-import readingservice.ConsoleReader;
 import readingservice.FileReader;
 import readingservice.Reader;
 import writingservice.Writer;

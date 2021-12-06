@@ -40,4 +40,10 @@ class CSVFileWriterTest {
                 "Sentence 1, Ala, ma, kota\n";
         Assertions.assertEquals(out, new String(Files.readAllBytes(file.toPath())));
     }
+
+    @Test
+    void write_expect_exception() {
+        Text text = TextCreator.prepareEmptyText();
+        Assertions.assertThrows(IllegalStateException.class, ()-> writer.write(text));
+    }
 }
